@@ -23,18 +23,59 @@ text = "<"
 custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 
-[node name="lbl_month" type="Label" parent="Header"]
+[node name="sel_month" type="OptionButton" parent="Header"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "October"
+item_count = 12
+selected = 5
+popup/item_0/text = "January"
+popup/item_0/id = 0
+popup/item_1/text = "February"
+popup/item_1/id = 1
+popup/item_2/text = "March"
+popup/item_2/id = 2
+popup/item_3/text = "April"
+popup/item_3/id = 3
+popup/item_4/text = "May"
+popup/item_4/id = 4
+popup/item_5/text = "June"
+popup/item_5/id = 5
+popup/item_6/text = "July"
+popup/item_6/id = 6
+popup/item_7/text = "August"
+popup/item_7/id = 7
+popup/item_8/text = "September"
+popup/item_8/id = 8
+popup/item_9/text = "October"
+popup/item_9/id = 9
+popup/item_10/text = "November"
+popup/item_10/id = 10
+popup/item_11/text = "December"
+popup/item_11/id = 11
 
-[node name="lbl_year" type="Label" parent="Header"]
+[node name="sel_year" type="OptionButton" parent="Header"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "2023"
-horizontal_alignment = 2
+item_count = 8
+selected = 4
+popup/item_0/text = "2020"
+popup/item_0/id = 0
+popup/item_1/text = "2021"
+popup/item_1/id = 1
+popup/item_2/text = "2022"
+popup/item_2/id = 2
+popup/item_3/text = "2023"
+popup/item_3/id = 3
+popup/item_4/text = "2024"
+popup/item_4/id = 4
+popup/item_5/text = "2025"
+popup/item_5/id = 5
+popup/item_6/text = "2026"
+popup/item_6/id = 6
+popup/item_7/text = "2027"
+popup/item_7/id = 7
 
 [node name="SplitContainer3" type="SplitContainer" parent="Header"]
 custom_minimum_size = Vector2(8, 0)
@@ -123,46 +164,48 @@ theme_override_constants/v_separation = 5
 columns = 7
 
 [connection signal="pressed" from="Header/btn_left" to="." method="change_month" binds= [-1]]
+[connection signal="item_selected" from="Header/sel_month" to="." method="_set_month"]
+[connection signal="item_selected" from="Header/sel_year" to="." method="change_year"]
 [connection signal="pressed" from="Header/btn_right" to="." method="change_month" binds= [1]]
-[connection signal="pressed" from="DaysContainer/Day" to="DaysContainer/Day" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18527" to="DaysContainer/@Button@18527" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18528" to="DaysContainer/@Button@18528" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18529" to="DaysContainer/@Button@18529" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18530" to="DaysContainer/@Button@18530" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18531" to="DaysContainer/@Button@18531" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18532" to="DaysContainer/@Button@18532" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18533" to="DaysContainer/@Button@18533" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18534" to="DaysContainer/@Button@18534" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18535" to="DaysContainer/@Button@18535" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18536" to="DaysContainer/@Button@18536" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18537" to="DaysContainer/@Button@18537" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18538" to="DaysContainer/@Button@18538" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18539" to="DaysContainer/@Button@18539" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18540" to="DaysContainer/@Button@18540" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18541" to="DaysContainer/@Button@18541" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18542" to="DaysContainer/@Button@18542" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18543" to="DaysContainer/@Button@18543" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18544" to="DaysContainer/@Button@18544" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18545" to="DaysContainer/@Button@18545" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18546" to="DaysContainer/@Button@18546" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18547" to="DaysContainer/@Button@18547" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18548" to="DaysContainer/@Button@18548" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18549" to="DaysContainer/@Button@18549" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18550" to="DaysContainer/@Button@18550" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18551" to="DaysContainer/@Button@18551" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18552" to="DaysContainer/@Button@18552" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18553" to="DaysContainer/@Button@18553" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18554" to="DaysContainer/@Button@18554" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18555" to="DaysContainer/@Button@18555" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18556" to="DaysContainer/@Button@18556" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18557" to="DaysContainer/@Button@18557" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18558" to="DaysContainer/@Button@18558" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18559" to="DaysContainer/@Button@18559" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18560" to="DaysContainer/@Button@18560" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18561" to="DaysContainer/@Button@18561" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18562" to="DaysContainer/@Button@18562" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18563" to="DaysContainer/@Button@18563" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18564" to="DaysContainer/@Button@18564" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18565" to="DaysContainer/@Button@18565" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18566" to="DaysContainer/@Button@18566" method="_on_pressed" flags=18]
-[connection signal="pressed" from="DaysContainer/@Button@18567" to="DaysContainer/@Button@18567" method="_on_pressed" flags=18]
+[connection signal="pressed" from="DaysContainer/Day" to="DaysContainer/Day" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17547" to="DaysContainer/@Button@17547" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17548" to="DaysContainer/@Button@17548" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17549" to="DaysContainer/@Button@17549" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17550" to="DaysContainer/@Button@17550" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17551" to="DaysContainer/@Button@17551" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17552" to="DaysContainer/@Button@17552" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17553" to="DaysContainer/@Button@17553" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17554" to="DaysContainer/@Button@17554" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17555" to="DaysContainer/@Button@17555" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17556" to="DaysContainer/@Button@17556" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17557" to="DaysContainer/@Button@17557" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17558" to="DaysContainer/@Button@17558" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17559" to="DaysContainer/@Button@17559" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17560" to="DaysContainer/@Button@17560" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17561" to="DaysContainer/@Button@17561" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17562" to="DaysContainer/@Button@17562" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17563" to="DaysContainer/@Button@17563" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17564" to="DaysContainer/@Button@17564" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17565" to="DaysContainer/@Button@17565" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17566" to="DaysContainer/@Button@17566" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17567" to="DaysContainer/@Button@17567" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17568" to="DaysContainer/@Button@17568" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17569" to="DaysContainer/@Button@17569" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17570" to="DaysContainer/@Button@17570" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17571" to="DaysContainer/@Button@17571" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17572" to="DaysContainer/@Button@17572" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17573" to="DaysContainer/@Button@17573" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17574" to="DaysContainer/@Button@17574" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17575" to="DaysContainer/@Button@17575" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17576" to="DaysContainer/@Button@17576" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17577" to="DaysContainer/@Button@17577" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17578" to="DaysContainer/@Button@17578" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17579" to="DaysContainer/@Button@17579" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17580" to="DaysContainer/@Button@17580" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17581" to="DaysContainer/@Button@17581" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17582" to="DaysContainer/@Button@17582" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17583" to="DaysContainer/@Button@17583" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17584" to="DaysContainer/@Button@17584" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17585" to="DaysContainer/@Button@17585" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17586" to="DaysContainer/@Button@17586" method="_on_pressed"]
+[connection signal="pressed" from="DaysContainer/@Button@17587" to="DaysContainer/@Button@17587" method="_on_pressed"]

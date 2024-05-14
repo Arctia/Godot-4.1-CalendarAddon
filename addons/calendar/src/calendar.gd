@@ -17,7 +17,11 @@ var date:Date
 var day_tscn = preload("res://addons/calendar/day.tscn")
 var date_selected:Dictionary
 
+const MIN_YEAR = 2020
+const MAX_YEAR = 2040
+
 func _ready() -> void:
+	self._generate_year_options()
 	self.date = Date.new()
 	self.date._ready()
 	self.date_selected = date.today.duplicate()
@@ -41,9 +45,28 @@ func _set_labels() -> void:
 	_set_month_year_labels()
 
 
+func _generate_year_options() -> void:
+	# from year 2012 -> 2036
+	var sy: OptionButton = %sel_year
+	var cc:int = 0
+	var year = Time.get_date_dict_from_system().year
+	sy.clear()
+	for yy in range(MIN_YEAR, MAX_YEAR + 1):
+		sy.add_item(str(yy))
+		if yy == year: sy.select(cc)
+		cc += 1
+
 func _set_month_year_labels() -> void:
-	%lbl_month.text = date.month_names[date_selected.month].capitalize()
-	%lbl_year.text = str(date_selected.year)
+	%sel_month.select(date_selected.month - 1)
+	%sel_month.text = date.month_names[date_selected.month].capitalize()
+	var ys = str(date_selected.year)
+	for i in range(%sel_year.get_item_count()):
+		if %sel_year.get_item_text(i) == ys:
+			%sel_year.select(i)
+			break
+
+func _set_month(idx:int) -> void:
+	self._change_month_by_idx(idx)
 
 
 func _set_day_labels() -> void:
@@ -154,10 +177,27 @@ func change_month(amount:int) -> void:
 	self._set_month_year_labels()
 
 
+func change_year(idx:int) -> void:
+	date_selected.year = int(%sel_year.text)
+	print(date_selected)
+	self._calc_days_number(date_selected)
+
+
+func _change_month_by_idx(idx:int) -> void:
+	date_selected.month = idx + 1
+	self._calc_days_number(date_selected)
+
+
 func _fix_date(datetime:Dictionary) -> void:
 	if datetime.month < 1:
-		datetime.month = 12
-		datetime.year -= 1
+		if datetime.year == MIN_YEAR:
+			date_selected.month = 1
+		else:
+			datetime.month = 12
+			datetime.year -= 1
 	if datetime.month > 12:
-		datetime.month = 1
-		datetime.year += 1
+		if datetime.year == MAX_YEAR:
+			date_selected.month = 12
+		else:
+			datetime.month = 1
+			datetime.year += 1

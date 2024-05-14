@@ -11,7 +11,7 @@ var month_days:Dictionary = {
 var month_names:Array = ["", 
 	"january", "february", "march", 
 	"april", "may", "june", 
-	"july", "august", "settember",
+	"july", "august", "september",
 	"october", "november", "december"
 	]
 
